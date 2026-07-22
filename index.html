@@ -1075,8 +1075,12 @@ document.getElementById('btnGoogle').addEventListener('click',async()=>{
       // Safari en iOS, y pierde la sesión a mitad del login con Google.
       // Solución: la primera vez, el login se hace en Safari real; una vez
       // ahí queda la sesión guardada, y la app instalada la reconoce sola.
-      window.open(location.origin + location.pathname, '_blank');
-      document.getElementById('lerr').textContent='Se abrió Safari — inicia sesión ahí. Cuando termines, vuelve a esta app y ya vas a estar conectada.';
+      // window.open() no funciona aquí: en modo standalone se queda atrapado
+      // en la misma vista. "x-safari-https://" es el único truco que hace
+      // que iOS entregue el link a Safari.app de verdad.
+      const urlPlano = (location.origin + location.pathname).replace(/^https:\/\//,'x-safari-https://');
+      location.href = urlPlano;
+      document.getElementById('lerr').textContent='Abriendo Safari — inicia sesión ahí. Cuando termines, vuelve a esta app y ya vas a estar conectada.';
       document.getElementById('lerr').style.color='#c7e0d0';
     } else if(ES_MOVIL){
       await auth.signInWithRedirect(provider);
