@@ -1,7 +1,7 @@
 {
   "name": "Fábrica de Sueños",
   "short_name": "Sueños",
-  "start_url": "./fabrica-de-suenos.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#241c18",
   "theme_color": "#241c18",
