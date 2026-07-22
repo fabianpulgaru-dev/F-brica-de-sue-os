@@ -427,6 +427,7 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
     <p class="lerr" id="lerr"></p>
     <p class="lnote">Un espacio para tus sueños ♡</p>
     <p class="lnote" style="margin-top:8px;color:rgba(255,255,255,.32);line-height:1.5;">Funciona también si abres el link desde WhatsApp u otra app.</p>
+    <p class="lnote" id="avisoStandalone" style="display:none;margin-top:10px;color:rgba(224,160,188,.85);line-height:1.6;">¿La abriste desde el ícono de tu pantalla de inicio? La primera vez, inicia sesión abriendo este mismo link en Safari (no el ícono). Después de eso, el ícono va a entrar solo.</p>
   </div>
 </div>
 
@@ -1021,10 +1022,9 @@ const auth = firebase.auth();
 const db = firebase.database();
 const storage = firebase.storage();
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
-auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
 const ES_MOVIL = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
 const ES_STANDALONE = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+if(ES_STANDALONE){ const av=document.getElementById('avisoStandalone'); if(av) av.style.display='block'; }
 
 // ── ESTADO ──────────────────────────────────────────────────
 let CU = null;
@@ -1070,23 +1070,8 @@ function mensajeAuthError(e){
 document.getElementById('btnGoogle').addEventListener('click',async()=>{
   document.getElementById('lerr').textContent='';
   try{
-    if(ES_STANDALONE){
-      // La app instalada (modo standalone) tiene almacenamiento separado de
-      // Safari en iOS, y pierde la sesión a mitad del login con Google.
-      // Solución: la primera vez, el login se hace en Safari real; una vez
-      // ahí queda la sesión guardada, y la app instalada la reconoce sola.
-      // window.open() no funciona aquí: en modo standalone se queda atrapado
-      // en la misma vista. "x-safari-https://" es el único truco que hace
-      // que iOS entregue el link a Safari.app de verdad.
-      const urlPlano = (location.origin + location.pathname).replace(/^https:\/\//,'x-safari-https://');
-      location.href = urlPlano;
-      document.getElementById('lerr').textContent='Abriendo Safari — inicia sesión ahí. Cuando termines, vuelve a esta app y ya vas a estar conectada.';
-      document.getElementById('lerr').style.color='#c7e0d0';
-    } else if(ES_MOVIL){
-      await auth.signInWithRedirect(provider);
-    } else {
-      await auth.signInWithPopup(provider);
-    }
+    if(ES_MOVIL) await auth.signInWithRedirect(provider);
+    else await auth.signInWithPopup(provider);
   }
   catch(e){ document.getElementById('lerr').textContent=mensajeAuthError(e); }
 });
