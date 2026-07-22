@@ -2,13 +2,14 @@
 <!-- VERSION: v1_fabrica_de_suenos_2026-07-21 -->
 <!--
   CÓMO PONERLA EN MARCHA:
-  1) Crea un proyecto nuevo en https://console.firebase.google.com
-     (Authentication → Google habilitado, Realtime Database, Storage).
-  2) Reemplaza el objeto FB más abajo con tus credenciales reales.
-  3) Reemplaza USUARIOS_BASE con los correos admin (el tuyo y, si quieres,
-     el de tu mamá) — el resto de la familia se agrega desde "Acceso"
-     dentro de la app, sin tocar código.
-  4) Sube este archivo a GitHub Pages (o el hosting que prefieras).
+  1) Firebase ya está conectado al proyecto "plataforma-paulina-u"
+     (Authentication → Google, Realtime Database y Storage deben
+     estar activados ahí — ver la guía de configuración paso a paso).
+  2) USUARIOS_BASE más abajo ya trae a Fabián como admin. Si quieres
+     que tu mamá también sea admin, descomenta/agrega su correo con
+     el mismo formato — el resto de la familia se agrega desde
+     "Acceso" dentro de la app, sin tocar código.
+  3) Sube este archivo a GitHub Pages (ver Paso 8 en adelante de la guía).
 -->
 <html lang="es">
 <head>
@@ -888,15 +889,14 @@ import { getDatabase, ref, set, get, onValue, push, remove, update }
 import { getStorage, ref as sref, uploadBytes, getDownloadURL, deleteObject }
   from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
-// ⚠️ REEMPLAZA con tu propio proyecto Firebase (ver comentario al inicio del archivo)
 const FB = {
-  apiKey:"TU_API_KEY",
-  authDomain:"fabrica-de-suenos.firebaseapp.com",
-  databaseURL:"https://fabrica-de-suenos-default-rtdb.firebaseio.com",
-  projectId:"fabrica-de-suenos",
-  storageBucket:"fabrica-de-suenos.firebasestorage.app",
-  messagingSenderId:"TU_SENDER_ID",
-  appId:"TU_APP_ID"
+  apiKey:"AIzaSyDLjzG98o9-V6kXIcnQYlTLVoxr-iqiY4Y",
+  authDomain:"plataforma-paulina-u.firebaseapp.com",
+  databaseURL:"https://plataforma-paulina-u-default-rtdb.firebaseio.com",
+  projectId:"plataforma-paulina-u",
+  storageBucket:"plataforma-paulina-u.firebasestorage.app",
+  messagingSenderId:"792651230393",
+  appId:"1:792651230393:web:b119c63cf3e2e31bcfff68"
 };
 
 // ⚠️ Reemplaza con los correos admin reales. El resto de la familia
