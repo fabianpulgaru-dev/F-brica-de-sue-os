@@ -894,6 +894,7 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script>
 
 
@@ -1021,8 +1022,7 @@ firebase.initializeApp(FB);
 const auth = firebase.auth();
 const db = firebase.database();
 const storage = firebase.storage();
-const provider = new firebase.auth.GoogleAuthProvider();
-const ES_MOVIL = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
+const GOOGLE_CLIENT_ID = "792651230393-gqti5a70u18vdrn18uhfs5f55hg8rg0t.apps.googleusercontent.com";
 const ES_STANDALONE = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
 if(ES_STANDALONE){ const av=document.getElementById('avisoStandalone'); if(av) av.style.display='block'; }
 
@@ -1067,20 +1067,35 @@ function mensajeAuthError(e){
 }
 
 
-document.getElementById('btnGoogle').addEventListener('click',async()=>{
+let tokenClient = null;
+function ensureTokenClient(){
+  if(tokenClient) return tokenClient;
+  tokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: GOOGLE_CLIENT_ID,
+    scope: 'openid email profile',
+    callback: async (resp) => {
+      if(!resp || resp.error){ document.getElementById('lerr').textContent='No se pudo iniciar sesión con Google.'; return; }
+      try{
+        const credential = firebase.auth.GoogleAuthProvider.credential(null, resp.access_token);
+        await auth.signInWithCredential(credential);
+      }catch(e){ document.getElementById('lerr').textContent=mensajeAuthError(e); }
+    }
+  });
+  return tokenClient;
+}
+
+document.getElementById('btnGoogle').addEventListener('click',()=>{
   document.getElementById('lerr').textContent='';
   try{
-    if(ES_MOVIL) await auth.signInWithRedirect(provider);
-    else await auth.signInWithPopup(provider);
+    if(typeof google==='undefined' || !google.accounts){
+      document.getElementById('lerr').textContent='Cargando Google… espera un segundo y toca de nuevo.';
+      return;
+    }
+    ensureTokenClient().requestAccessToken({ prompt: 'select_account' });
   }
   catch(e){ document.getElementById('lerr').textContent=mensajeAuthError(e); }
 });
 document.getElementById('btnLogout').addEventListener('click',()=>auth.signOut());
-
-// Captura errores del flujo de redirect (ej. al volver de Google en iOS)
-auth.getRedirectResult().catch(e=>{
-  if(e && e.code && e.code!=='auth/no-auth-event') document.getElementById('lerr').textContent=mensajeAuthError(e);
-});
 
 auth.onAuthStateChanged(async user => {
   if(user){
