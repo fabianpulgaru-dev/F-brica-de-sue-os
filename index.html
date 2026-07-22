@@ -1022,7 +1022,9 @@ const db = firebase.database();
 const storage = firebase.storage();
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
 const ES_MOVIL = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
+const ES_STANDALONE = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
 
 // ── ESTADO ──────────────────────────────────────────────────
 let CU = null;
@@ -1059,7 +1061,7 @@ function mensajeAuthError(e){
   const pareceNavegadorInterno = /whatsapp|fban|fbav|instagram|messenger|line|micromessenger|wa business/i.test(ua)
     || (typeof window.webkit!=='undefined' && window.webkit?.messageHandlers);
   if(pareceNavegadorInterno || msg.includes('missing initial state') || msg.includes('sessionstorage') || msg.includes('storage-partitioned')){
-    return 'El ingreso con Google no funciona bien dentro del navegador interno de apps como WhatsApp o Instagram. Toca el botón "↗ Abrir en Safari" de arriba, o mantén presionado el link y elige "Abrir en Safari", y vuelve a iniciar sesión ahí.';
+    return 'El ingreso con Google no funciona bien dentro de este navegador. Ábrelo en Safari y vuelve a iniciar sesión ahí.';
   }
   return 'No se pudo iniciar sesión. Revisa que estés entrando con un correo autorizado y vuelve a intentar.';
 }
@@ -1068,8 +1070,19 @@ function mensajeAuthError(e){
 document.getElementById('btnGoogle').addEventListener('click',async()=>{
   document.getElementById('lerr').textContent='';
   try{
-    if(ES_MOVIL) await auth.signInWithRedirect(provider);
-    else await auth.signInWithPopup(provider);
+    if(ES_STANDALONE){
+      // La app instalada (modo standalone) tiene almacenamiento separado de
+      // Safari en iOS, y pierde la sesión a mitad del login con Google.
+      // Solución: la primera vez, el login se hace en Safari real; una vez
+      // ahí queda la sesión guardada, y la app instalada la reconoce sola.
+      window.open(location.origin + location.pathname, '_blank');
+      document.getElementById('lerr').textContent='Se abrió Safari — inicia sesión ahí. Cuando termines, vuelve a esta app y ya vas a estar conectada.';
+      document.getElementById('lerr').style.color='#c7e0d0';
+    } else if(ES_MOVIL){
+      await auth.signInWithRedirect(provider);
+    } else {
+      await auth.signInWithPopup(provider);
+    }
   }
   catch(e){ document.getElementById('lerr').textContent=mensajeAuthError(e); }
 });
