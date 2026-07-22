@@ -37,8 +37,8 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
 #loginScreen.out{opacity:0;visibility:hidden;pointer-events:none;}
 .lbox{position:relative;text-align:center;padding:48px 52px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;max-width:380px;width:90%;}
 .ldecor{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:20px;}
-.lc1{position:absolute;width:500px;height:500px;border-radius:50%;background:var(--rose);opacity:.07;top:-200px;left:-150px;}
-.lc2{position:absolute;width:350px;height:350px;border-radius:50%;background:var(--sage);opacity:.06;bottom:-100px;right:-100px;}
+.lc1{position:absolute;width:520px;height:480px;border-radius:42% 58% 65% 35% / 45% 40% 60% 55%;background:var(--rose);opacity:.08;top:-210px;left:-160px;transform:rotate(-8deg);}
+.lc2{position:absolute;width:360px;height:400px;border-radius:65% 35% 40% 60% / 55% 60% 40% 45%;background:var(--sage);opacity:.07;bottom:-110px;right:-90px;transform:rotate(12deg);}
 .lstar{font-size:36px;color:var(--rose-m);display:block;margin-bottom:14px;line-height:1;}
 .lbox h1{font-size:28px;color:#fdf8f3;font-weight:300;margin-bottom:6px;}
 .lbox p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:28px;}
@@ -98,7 +98,8 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
 .sec{display:none;padding:24px 28px;max-width:880px;}
 .sec.active{display:block;}
 .sec-hd{margin-bottom:20px;}
-.sec-hd h2{font-size:24px;color:var(--ink);margin-bottom:3px;}
+.sec-hd h2{font-size:24px;color:var(--ink);margin-bottom:3px;position:relative;display:inline-block;}
+.sec-hd h2::after{content:'';display:block;width:38px;height:7px;margin-top:5px;background:var(--rose-m);border-radius:60% 40% 55% 45% / 50% 60% 40% 50%;opacity:.6;}
 .sec-hd p{font-size:13px;color:var(--dim);}
 
 /* SHARED */
@@ -135,7 +136,7 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
 
 /* INICIO */
 .hero{background:var(--ink);border-radius:14px;padding:22px 26px;margin-bottom:16px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;width:260px;height:260px;border-radius:50%;background:var(--rose);opacity:.07;top:-80px;right:-60px;}
+.hero::before{content:'';position:absolute;width:280px;height:250px;border-radius:38% 62% 55% 45% / 50% 45% 55% 50%;background:var(--rose);opacity:.08;top:-90px;right:-70px;transform:rotate(-10deg);}
 .hero-ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--rose-m);margin-bottom:6px;}
 .hero-name{font-family:'Fraunces',serif;font-size:28px;color:#fdf8f3;font-weight:300;line-height:1.1;margin-bottom:3px;}
 .hero-date{font-size:12px;color:rgba(255,255,255,.3);}
@@ -145,7 +146,7 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
 .dcard{background:var(--w);border:1px solid var(--bdr);border-radius:12px;padding:14px 16px;}
 .dcard-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px;display:flex;align-items:center;gap:5px;}
 .wwidget{display:flex;gap:11px;align-items:flex-start;}
-.wcircle{width:54px;height:54px;border-radius:50%;flex-shrink:0;background:var(--rose-l);border:2px solid var(--rose-m);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.wcircle{width:56px;height:52px;border-radius:60% 40% 45% 55% / 55% 45% 55% 45%;flex-shrink:0;background:var(--rose-l);border:2px solid var(--rose-m);display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .wcircle .wn{font-family:'Fraunces',serif;font-size:20px;color:var(--rose-d);line-height:1;}
 .wcircle .ws{font-size:8px;text-transform:uppercase;letter-spacing:1px;color:var(--rose-d);}
 .wdet h4{font-size:12px;font-weight:500;margin-bottom:2px;}
@@ -195,7 +196,7 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
 
 /* DETALLE PROYECTO */
 .ev-det-hdr{background:var(--ink);border-radius:14px;padding:18px 22px;margin-bottom:16px;position:relative;overflow:hidden;}
-.ev-det-hdr::before{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:var(--rose);opacity:.08;top:-50px;right:-30px;}
+.ev-det-hdr::before{content:'';position:absolute;width:200px;height:170px;border-radius:60% 40% 35% 65% / 45% 55% 45% 55%;background:var(--rose);opacity:.09;top:-55px;right:-35px;transform:rotate(15deg);}
 .ev-back{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.7);padding:5px 11px;border-radius:var(--r);font-size:12px;cursor:pointer;margin-bottom:10px;display:inline-flex;align-items:center;gap:5px;}
 .ev-back:hover{background:rgba(255,255,255,.15);color:white;}
 .ev-det-icon{font-size:28px;margin-bottom:5px;}
@@ -415,12 +416,9 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
       <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
       Ingresar con Google
     </button>
-    <button class="gbtn" id="btnSafari" style="background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);margin-top:8px;">
-      ↗ Abrir en Safari
-    </button>
     <p class="lerr" id="lerr"></p>
     <p class="lnote">Un espacio para tus sueños ♡</p>
-    <p class="lnote" style="margin-top:8px;color:rgba(255,255,255,.32);line-height:1.5;">¿Llegaste desde WhatsApp u otra app? Usa el botón "↗ Abrir en Safari" de arriba antes de ingresar.</p>
+    <p class="lnote" style="margin-top:8px;color:rgba(255,255,255,.32);line-height:1.5;">Funciona también si abres el link desde WhatsApp u otra app.</p>
   </div>
 </div>
 
@@ -883,14 +881,12 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:300;}
 
 <div class="toast" id="toast"><span class="tdot"></span><span id="toastMsg">Guardado</span></div>
 
-<script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut }
-  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
-import { getDatabase, ref, set, get, onValue, push, remove, update }
-  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
-import { getStorage, ref as sref, uploadBytes, getDownloadURL, deleteObject }
-  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+<script>
+
 
 const FB = {
   apiKey:"AIzaSyDLjzG98o9-V6kXIcnQYlTLVoxr-iqiY4Y",
@@ -1012,11 +1008,13 @@ function esAdmin(){
   return !!(e && USUARIOS_BASE[e]?.admin);
 }
 
-const app = initializeApp(FB);
-const auth = getAuth(app);
-const db = getDatabase(app);
-const storage = getStorage(app);
-const provider = new GoogleAuthProvider();
+firebase.initializeApp(FB);
+const auth = firebase.auth();
+const db = firebase.database();
+const storage = firebase.storage();
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
+const ES_MOVIL = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
 
 // ── ESTADO ──────────────────────────────────────────────────
 let CU = null;
@@ -1058,33 +1056,28 @@ function mensajeAuthError(e){
   return 'No se pudo iniciar sesión. Revisa que estés entrando con un correo autorizado y vuelve a intentar.';
 }
 
-function abrirEnSafari(){
-  // Truco de iOS: reemplazar https:// por x-safari-https:// fuerza la apertura
-  // en Safari real, incluso desde navegadores internos de otras apps (iOS).
-  const actual = location.href;
-  if(/iphone|ipad|ipod/i.test(navigator.userAgent)){
-    location.href = actual.replace(/^https?:\/\//,'x-safari-https://');
-  } else {
-    // Android u otros: copiamos el link para que lo peguen en el navegador.
-    navigator.clipboard?.writeText(actual).catch(()=>{});
-    document.getElementById('lerr').textContent='Copiamos el link — pégalo en Chrome o el navegador que uses normalmente.';
-  }
-}
-document.getElementById('btnSafari').addEventListener('click',abrirEnSafari);
 
 document.getElementById('btnGoogle').addEventListener('click',async()=>{
   document.getElementById('lerr').textContent='';
-  try{ await signInWithPopup(auth,provider); }
+  try{
+    if(ES_MOVIL) await auth.signInWithRedirect(provider);
+    else await auth.signInWithPopup(provider);
+  }
   catch(e){ document.getElementById('lerr').textContent=mensajeAuthError(e); }
 });
-document.getElementById('btnLogout').addEventListener('click',()=>signOut(auth));
+document.getElementById('btnLogout').addEventListener('click',()=>auth.signOut());
 
-onAuthStateChanged(auth, async user => {
+// Captura errores del flujo de redirect (ej. al volver de Google en iOS)
+auth.getRedirectResult().catch(e=>{
+  if(e && e.code && e.code!=='auth/no-auth-event') document.getElementById('lerr').textContent=mensajeAuthError(e);
+});
+
+auth.onAuthStateChanged(async user => {
   if(user){
-    const snapU = await get(ref(db,'acceso'));
+    const snapU = await db.ref('acceso').once('value');
     dUsuarios = snapU.val() || {};
     const info = getUsuarioInfo(user.email);
-    if(!info){ signOut(auth); document.getElementById('lerr').textContent='Correo no autorizado: '+user.email+'. Pide que te inviten.'; return; }
+    if(!info){ auth.signOut(); document.getElementById('lerr').textContent='Correo no autorizado: '+user.email+'. Pide que te inviten.'; return; }
     CU = { uid:user.uid, email:normEmail(user.email), ...info };
     document.getElementById('loginScreen').classList.add('out');
     document.getElementById('app').classList.add('on');
@@ -1119,16 +1112,16 @@ window.navTo = function(sec){
 
 // ── LISTENERS ─────────────────────────────────────────────────
 function initListeners(){
-  onValue(ref(db,'tareas'),s=>{ dTareas=s.val()||{}; renderTareas(); updateStats(); });
-  onValue(ref(db,'hitos'),s=>{ dHitos=s.val()||{}; renderHitos(); renderDashLogros(); updateStats(); });
-  onValue(ref(db,'notas'),s=>{ dNotas=s.val()||{}; renderNotas(); renderDashNota(); updateStats(); });
-  onValue(ref(db,'ideas'),s=>{ dIdeas=s.val()||{}; renderIdeas(); renderDashIdea(); updateStats(); });
-  onValue(ref(db,'galeria'),s=>{ dGaleria=s.val()||{}; if(albumActual) abrirAlbum(albumActual); else renderAlbumsGrid(); updateStats(); });
-  onValue(ref(db,'albumes'),s=>{ dAlbumes=s.val()||{}; if(!albumActual) renderAlbumsGrid(); });
-  onValue(ref(db,'lista'),s=>{ dLista=s.val()||{}; renderLista(); });
-  onValue(ref(db,'eventos'),s=>{ dEventos=s.val()||{}; renderEvsGrid(); renderDashEv(); updateStats(); aplicarPermisos(); });
-  onValue(ref(db,'acceso'),s=>{ dUsuarios=s.val()||{}; if(esAdmin()) renderUsuariosList(); aplicarPermisos(); renderNotaAudiencia(); });
-  onValue(ref(db,'config/app'),s=>{ dConfig=s.val()||{}; aplicarConfigApp(); });
+  db.ref('tareas').on('value', s=>{ dTareas=s.val()||{}; renderTareas(); updateStats(); });
+  db.ref('hitos').on('value', s=>{ dHitos=s.val()||{}; renderHitos(); renderDashLogros(); updateStats(); });
+  db.ref('notas').on('value', s=>{ dNotas=s.val()||{}; renderNotas(); renderDashNota(); updateStats(); });
+  db.ref('ideas').on('value', s=>{ dIdeas=s.val()||{}; renderIdeas(); renderDashIdea(); updateStats(); });
+  db.ref('galeria').on('value', s=>{ dGaleria=s.val()||{}; if(albumActual) abrirAlbum(albumActual); else renderAlbumsGrid(); updateStats(); });
+  db.ref('albumes').on('value', s=>{ dAlbumes=s.val()||{}; if(!albumActual) renderAlbumsGrid(); });
+  db.ref('lista').on('value', s=>{ dLista=s.val()||{}; renderLista(); });
+  db.ref('eventos').on('value', s=>{ dEventos=s.val()||{}; renderEvsGrid(); renderDashEv(); updateStats(); aplicarPermisos(); });
+  db.ref('acceso').on('value', s=>{ dUsuarios=s.val()||{}; if(esAdmin()) renderUsuariosList(); aplicarPermisos(); renderNotaAudiencia(); });
+  db.ref('config/app').on('value', s=>{ dConfig=s.val()||{}; aplicarConfigApp(); });
 }
 
 function aplicarConfigApp(){
@@ -1139,7 +1132,7 @@ function aplicarConfigApp(){
 }
 window.guardarAjustesApp=async function(){
   const subtitulo=document.getElementById('cfgSubtitulo').value.trim();
-  await set(ref(db,'config/app'),{subtitulo,actualizadoPor:CU?.email||'',actualizadoEn:new Date().toISOString()});
+  await db.ref('config/app').set({subtitulo,actualizadoPor:CU?.email||'',actualizadoEn:new Date().toISOString()});
   toast('Ajustes guardados ✓');
 };
 
@@ -1257,7 +1250,7 @@ window.agregarInvitado = async function(){
   }
   const data = {email,nombre,rol:rolSel,agregadoPor:CU.email,fecha:new Date().toISOString()};
   if(secciones) data.secciones=secciones;
-  await push(ref(db,'acceso'),data);
+  await db.ref('acceso').push(data);
   document.getElementById('invEmail').value='';
   document.getElementById('invNombre').value='';
   document.querySelectorAll('#rolPicker .rol-opt').forEach((o,i)=>o.classList.toggle('selected',i===0));
@@ -1268,7 +1261,7 @@ window.agregarInvitado = async function(){
 window.quitarInvitado = async function(key){
   if(!esAdmin()){ toast('Solo el administrador puede quitar usuarios'); return; }
   if(!confirm('¿Quitar el acceso a este usuario?')) return;
-  await remove(ref(db,'acceso/'+key));
+  await db.ref('acceso/'+key).remove();
   toast('Acceso eliminado');
 };
 
@@ -1295,7 +1288,7 @@ window.guardarIdeaGlobal = async function(){
   const txt=document.getElementById('ideaGlobalTxt').value.trim();
   if(!txt){ toast('Escribe una idea'); return; }
   const prio=document.getElementById('ideaGlobalPrio').value;
-  await push(ref(db,'ideas'),{
+  await db.ref('ideas').push({
     text:txt, prio, estado:'nueva',
     autor:CU?.nombre||'', email:normEmail(CU?.email),
     fecha:new Date().toISOString(), votos:{up:[],dn:[]}
@@ -1352,11 +1345,11 @@ window.votarIdeaGlobal=async function(id,tipo){
   const up=[...(votos.up||[])], dn=[...(votos.dn||[])];
   const otro=tipo==='up'?dn:up, propio=tipo==='up'?up:dn;
   const i=propio.indexOf(uid2); if(i>=0) propio.splice(i,1); else{ propio.push(uid2); const j=otro.indexOf(uid2); if(j>=0) otro.splice(j,1); }
-  await update(ref(db,'ideas/'+id+'/votos'),tipo==='up'?{up,dn:otro}:{up:otro,dn});
+  await db.ref('ideas/'+id+'/votos').update(tipo==='up'?{up,dn:otro}:{up:otro,dn});
 };
 
-window.cambiarEstadoIdea=async function(id,estado){ await update(ref(db,'ideas/'+id),{estado}); toast('Idea actualizada'); };
-window.eliminarIdeaGlobal=async function(id){ if(confirm('¿Eliminar esta idea?')) await remove(ref(db,'ideas/'+id)); };
+window.cambiarEstadoIdea=async function(id,estado){ await db.ref('ideas/'+id).update({estado}); toast('Idea actualizada'); };
+window.eliminarIdeaGlobal=async function(id){ if(confirm('¿Eliminar esta idea?')) await db.ref('ideas/'+id).remove(); };
 
 window.promoverIdea=async function(id){
   const idea=dIdeas[id]; if(!idea) return;
@@ -1369,9 +1362,9 @@ window.promoverIdea=async function(id){
     ideaOrigenId:id,
     creadoEn:new Date().toISOString(), actualizadoEn:new Date().toISOString(),
   };
-  const r=push(ref(db,'eventos'));
-  await set(r,data);
-  await update(ref(db,'ideas/'+id),{estado:'promo'});
+  const r=db.ref('eventos').push();
+  await r.set(data);
+  await db.ref('ideas/'+id).update({estado:'promo'});
   toast('Idea convertida en proyecto ✓');
   navTo('proyectos');
   setTimeout(()=>abrirEv(r.key),200);
@@ -1622,7 +1615,7 @@ window.eliminarEvSeguro = async function(id){
     updates['eventos/' + id] = null;
     Object.entries(dTareas || {}).forEach(([tid, t]) => { if(t.evId === id) updates['tareas/' + tid] = null; });
     Object.entries(dGaleria || {}).forEach(([fid, f]) => { if(f.evId === id) updates['galeria/' + fid + '/evId'] = null; });
-    await update(ref(db), updates);
+    await db.ref().update(updates);
     evActual = null;
     mostrarListaEv();
     toast('Proyecto eliminado ✓');
@@ -1687,8 +1680,8 @@ window.guardarEvento=async function(){
     creadoEn:evEditing?(existing.creadoEn||new Date().toISOString()):new Date().toISOString(),
     actualizadoEn:new Date().toISOString(),
   };
-  const r=evEditing?ref(db,'eventos/'+evEditing):push(ref(db,'eventos'));
-  await set(r,data);
+  const r=evEditing?db.ref('eventos/'+evEditing):db.ref('eventos').push();
+  await r.set(data);
   cerrarModalEvento(); toast(evEditing?'Proyecto actualizado ✓':'Proyecto creado ✓');
   if(evEditing&&evActual===evEditing) setTimeout(()=>abrirEv(evEditing),300);
 };
@@ -1696,17 +1689,17 @@ window.guardarEvento=async function(){
 // Materiales por proyecto
 window.toggleEvLista=async function(evId,itemId){
   const item=dEventos[evId]?.lista?.[itemId]; if(!item) return;
-  await set(ref(db,'eventos/'+evId+'/lista/'+itemId+'/done'),!item.done);
+  await db.ref('eventos/'+evId+'/lista/'+itemId+'/done').set(!item.done);
   setTimeout(()=>abrirEv(evId),100);
 };
 window.eliminarEvLista=async function(evId,itemId){
-  await remove(ref(db,'eventos/'+evId+'/lista/'+itemId));
+  await db.ref('eventos/'+evId+'/lista/'+itemId).remove();
   setTimeout(()=>abrirEv(evId),100);
 };
 window.agregarEvLista=async function(evId){
   const inp=document.getElementById('ladd_'+evId);
   const n=inp?.value?.trim(); if(!n) return;
-  await push(ref(db,'eventos/'+evId+'/lista'),{nombre:n,done:false,creadoEn:new Date().toISOString()});
+  await db.ref('eventos/'+evId+'/lista').push({nombre:n,done:false,creadoEn:new Date().toISOString()});
   inp.value=''; setTimeout(()=>abrirEv(evId),100);
 };
 
@@ -1743,10 +1736,10 @@ function renderTCard(t){
 
 window.toggleT=async function(id){
   const t=dTareas[id]; if(!t) return;
-  await update(ref(db,'tareas/'+id),{done:!t.done,doneAt:!t.done?new Date().toISOString():null});
+  await db.ref('tareas/'+id).update({done:!t.done,doneAt:!t.done?new Date().toISOString():null});
   if(t.evId&&evActual===t.evId) setTimeout(()=>abrirEv(t.evId),200);
 };
-window.eliminarT=async function(id){ if(confirm('¿Eliminar?')) await remove(ref(db,'tareas/'+id)); };
+window.eliminarT=async function(id){ if(confirm('¿Eliminar?')) await db.ref('tareas/'+id).remove(); };
 
 window.filtrarT=function(f,el){
   tFiltro=f;
@@ -1786,8 +1779,8 @@ window.guardarTarea=async function(){
     evId:tEditing?(dTareas[tEditing]?.evId||tContextEv||null):(tContextEv||null),
     creadoPor:CU?.nombre||'', creadoEn:new Date().toISOString(),
   };
-  const r=tEditing?ref(db,'tareas/'+tEditing):push(ref(db,'tareas'));
-  await set(r,data);
+  const r=tEditing?db.ref('tareas/'+tEditing):db.ref('tareas').push();
+  await r.set(data);
   cerrarModalTarea(); toast(tEditing?'Tarea actualizada ✓':'Tarea guardada ✓');
   if(tContextEv&&evActual===tContextEv) setTimeout(()=>abrirEv(tContextEv),300);
 };
@@ -1863,15 +1856,15 @@ window.guardarHito=async function(){
   if(!nombre){ toast('Escribe el nombre'); return; }
   const editId=document.getElementById('mHito').dataset.editId;
   const data={nombre,desc:document.getElementById('hDesc').value.trim(),fecha:document.getElementById('hFecha').value,status:document.getElementById('hStatus').value};
-  const r=editId?ref(db,'hitos/'+editId):push(ref(db,'hitos'));
-  await set(r,data);
+  const r=editId?db.ref('hitos/'+editId):db.ref('hitos').push();
+  await r.set(data);
   const hid=editId||r.key;
   const evSel=document.getElementById('hEvento').value;
-  for(const [eid,ev] of Object.entries(dEventos)){ if(ev.hitoId===hid) await update(ref(db,'eventos/'+eid),{hitoId:null}); }
-  if(evSel) await update(ref(db,'eventos/'+evSel),{hitoId:hid});
+  for(const [eid,ev] of Object.entries(dEventos)){ if(ev.hitoId===hid) await db.ref('eventos/'+eid).update({hitoId:null}); }
+  if(evSel) await db.ref('eventos/'+evSel).update({hitoId:hid});
   cerrarModalHito(); toast(editId?'Logro actualizado ✓':'Logro guardado ✓');
 };
-window.eliminarH=async function(id){ if(confirm('¿Eliminar?')) await remove(ref(db,'hitos/'+id)); };
+window.eliminarH=async function(id){ if(confirm('¿Eliminar?')) await db.ref('hitos/'+id).remove(); };
 
 // ══════ ÁLBUMES / GALERÍA ═══════════════════════════════════════
 function renderAlbumsGrid(){
@@ -1998,8 +1991,8 @@ window.guardarAlbum=async function(){
     estilo:albEstiloSel, evId:albEvId||null,
     creadoEn:albEditing?(dAlbumes[albEditing]?.creadoEn||new Date().toISOString()):new Date().toISOString()
   };
-  const r=albEditing?ref(db,'albumes/'+albEditing):push(ref(db,'albumes'));
-  await set(r,data);
+  const r=albEditing?db.ref('albumes/'+albEditing):db.ref('albumes').push();
+  await r.set(data);
   cerrarModalAlbum();
   toast(albEditing?'Álbum actualizado ✓':'Álbum creado ✓');
   if(albEditing&&albumActual===albEditing) setTimeout(()=>abrirAlbum(albEditing),200);
@@ -2010,10 +2003,10 @@ window.eliminarAlbum=async function(id){
   if(!confirm('¿Eliminar el álbum? Las fotos también se eliminarán.')) return;
   const fotos=Object.entries(dGaleria).filter(([,f])=>f.albumId===id);
   for(const [fid,f] of fotos){
-    await remove(ref(db,'galeria/'+fid));
-    try{ await deleteObject(sref(storage,f.url)); }catch(e){}
+    await db.ref('galeria/'+fid).remove();
+    try{ await storage.refFromURL(f.url).delete(); }catch(e){}
   }
-  await remove(ref(db,'albumes/'+id));
+  await db.ref('albumes/'+id).remove();
   mostrarAlbumsGrid(); toast('Álbum eliminado');
 };
 
@@ -2023,12 +2016,12 @@ window.subirFotosAlbum=async function(files,albumId){
   for(const file of Array.from(files)){
     if(!file.type.startsWith('image/')) continue;
     try{
-      const key=push(ref(db,'galeria')).key;
+      const key=db.ref('galeria').push().key;
       const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g,'');
-      const sr=sref(storage,'galeria/'+key+(ext?'.'+ext:''));
-      const snap=await uploadBytes(sr,file);
-      const url=await getDownloadURL(snap.ref);
-      await set(ref(db,'galeria/'+key),{url,caption:'',fecha:new Date().toISOString(),autor:CU?.nombre||'',albumId:albumId});
+      const sr=storage.ref('galeria/'+key+(ext?'.'+ext:''));
+      const snap=await sr.put(file);
+      const url=await snap.ref.getDownloadURL();
+      await db.ref('galeria/'+key).set({url,caption:'',fecha:new Date().toISOString(),autor:CU?.nombre||'',albumId:albumId});
     }catch(e){ toast('Error: '+e.message); }
   }
   toast('Fotos guardadas ✓');
@@ -2039,8 +2032,8 @@ window.abrirLightbox=function(url){ document.getElementById('lbImg').src=url; do
 window.cerrarLightbox=function(){ document.getElementById('lightbox').classList.remove('show'); };
 window.eliminarFoto=async function(id,url){
   if(!confirm('¿Eliminar?')) return;
-  await remove(ref(db,'galeria/'+id));
-  try{ await deleteObject(sref(storage,url)); }catch(e){}
+  await db.ref('galeria/'+id).remove();
+  try{ await storage.refFromURL(url).delete(); }catch(e){}
   toast('Foto eliminada');
   if(evActual) setTimeout(()=>abrirEv(evActual),300);
 };
@@ -2055,7 +2048,7 @@ window.editarCaption = async function(fotoId, el){
   el.onblur = async ()=>{
     el.contentEditable = 'false';
     const nuevo = el.textContent.trim();
-    if(nuevo !== val) await update(ref(db,'galeria/'+fotoId),{caption:nuevo});
+    if(nuevo !== val) await db.ref('galeria/'+fotoId).update({caption:nuevo});
   };
   el.onkeydown = e=>{ if(e.key==='Enter'){ e.preventDefault(); el.blur(); } };
 };
@@ -2087,7 +2080,7 @@ window.guardarNota=async function(evId){
       if(!visiblePara.length){ toast('Elige al menos un usuario'); return; }
     }
   }
-  await push(ref(db,'notas'),{
+  await db.ref('notas').push({
     text,mood:moodSel,autor:CU?.nombre||'',email:normEmail(CU?.email),fecha:new Date().toISOString(),evId:evId||null,
     visibilidad,visiblePara
   });
@@ -2128,7 +2121,7 @@ function renderDashNota(){
   el.innerHTML=`<div class="nota-mini"><div class="nota-mini-a">${n.mood||'♡'} ${esc(n.autor||'')} · ${fLarga(n.fecha)}</div><div class="nota-mini-t">${esc(n.text.length>140?n.text.slice(0,140)+'…':n.text)}</div></div>`;
 }
 
-window.eliminarNota=async function(id){ if(confirm('¿Eliminar?')) await remove(ref(db,'notas/'+id)); };
+window.eliminarNota=async function(id){ if(confirm('¿Eliminar?')) await db.ref('notas/'+id).remove(); };
 
 // ══════ MATERIALES (ex lista rica) ═══════════════════════════════
 const LISTA_CAT_MAP = {herramientas:'🔨 Herramientas',materiales:'🧵 Materiales',insumos:'📦 Insumos',digital:'💻 Digital',otro:'✨ Otro'};
@@ -2194,9 +2187,9 @@ window.filtrarLista = function(f, el){
 
 window.toggleLRich = async function(id){
   const i=dLista[id]; if(!i) return;
-  await update(ref(db,'lista/'+id),{done:!i.done});
+  await db.ref('lista/'+id).update({done:!i.done});
 };
-window.eliminarLRich = async function(id){ if(confirm('¿Eliminar?')) await remove(ref(db,'lista/'+id)); };
+window.eliminarLRich = async function(id){ if(confirm('¿Eliminar?')) await db.ref('lista/'+id).remove(); };
 
 window.abrirModalListaItem = function(id){
   listaEditing=id||null;
@@ -2244,18 +2237,19 @@ window.guardarListaItem = async function(){
     creadoEn:listaEditing?(existing.creadoEn||new Date().toISOString()):new Date().toISOString(),
   };
   const file = document.getElementById('liAdj').files?.[0];
-  const r=listaEditing?ref(db,'lista/'+listaEditing):push(ref(db,'lista'));
+  const r=listaEditing?db.ref('lista/'+listaEditing):db.ref('lista').push();
   const key = listaEditing || r.key;
   if(file){
     const cleanName = file.name.replace(/[<>]/g,'').slice(0,80);
     const ext = (file.name.split('.').pop() || 'bin').toLowerCase().replace(/[^a-z0-9]/g,'');
-    const sr=sref(storage,'lista/'+key+(ext?'.'+ext:''));
-    const snap=await uploadBytes(sr,file);
-    data.adjUrl=await getDownloadURL(snap.ref);
+    const sr=storage.ref('lista/'+key+(ext?'.'+ext:''));
+    const snap=await sr.put(file);
+    data.adjUrl=await snap.ref.getDownloadURL();
     data.adjName=cleanName;
   }
-  await set(r,data); cerrarModalListaItem(); toast(listaEditing?'Ítem actualizado ✓':'Ítem guardado ✓');
+  await r.set(data); cerrarModalListaItem(); toast(listaEditing?'Ítem actualizado ✓':'Ítem guardado ✓');
 };
+
 </script>
 </body>
 </html>
